@@ -36,5 +36,14 @@ int main()
         cout << *it << endl;
     }
 
+    set<string> intersectionSet = setIntersection(s1, s2);
+
+    cout << "intersectionSet: " << endl;
+
+    for (set<string>::iterator it = intersectionSet.begin(); it != intersectionSet.end(); ++it)
+    {
+        cout << *it << endl;
+    }
+
     cout << "done" << endl;
 }
