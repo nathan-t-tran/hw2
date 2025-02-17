@@ -15,16 +15,39 @@ std::string convToLower(std::string src)
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
+    string completedWord = "";
+    set<string> wordSet;
+    int size = rawWords.size();
 
+    //cout << "beginning of parser" << endl;
 
+    for (int i = 0; i < size; i++) //loops throw rawWords
+    {
+        if (rawWords[i] >= 'a' && rawWords[i] <= 'z') //checks if the character is a normal leter
+        {
+            //cout << "current char: " << rawWords[i] << endl;
 
+            completedWord.push_back(rawWords[i]); //adds it to the completed word
+            //cout << "completedWord: " << completedWord << endl;
+        }
+        else // if it is a punctuation or space
+        {
+            //cout << "completedWord: " << completedWord << endl;
+            if (completedWord.size() >= 2)
+            {
+                //cout << "Inserted completedWord: " << completedWord << endl;
+                wordSet.insert(completedWord); //inserts word into word set
+            }
+            completedWord = ""; //resets completed word
+        }
+    }
+    
+    if (completedWord.size() >= 2)
+    {
+        wordSet.insert(completedWord); //when it is just the end of the string
+    }
 
-
-
-
-
-
-
+    return wordSet;
 }
 
 /**************************************************
