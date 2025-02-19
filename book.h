@@ -7,13 +7,15 @@
 class Book: public Product
 {
 public:
-    Book(string name, double price, int quantity, string category, string author, string ISBN);
+    Book(string name, double price, int quantity, string author, string ISBN);
     set<string> keywords();
     string displayString();
 
 private:
-    string author;
-    string ISBN;
+    string author_;
+    string ISBN_;
+    string category_ = "book";
+    set<string> keyWords_;
 };
 
 #endif
