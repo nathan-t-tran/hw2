@@ -15,18 +15,27 @@ Book::Book(string name, double price, int quantity, string author, string ISBN) 
     ISBN_ = ISBN;
 }
 
-set<string> Book::keywords()
+set<string> Book::keywords() const
 {
    set<string> authorSet = parseStringToWords(author_);
    set<string> nameSet = parseStringToWords(name_);
    authorSet = setUnion(authorSet, nameSet);
-   keyWords_ = setUnion(keyWords_, authorSet);
-   keyWords_.insert(ISBN_);
+   set<string> keyWords = setUnion(keyWords, authorSet);
+   keyWords.insert(ISBN_);
 
-   return keyWords_;
+   return keyWords;
 }
 
-string Book::displayString()
+string Book::displayString() const
 {
-    
+    ostringstream oss;
+    oss << name_ << "\n";
+    oss << "Author: " << author_ << " ISBN: " << ISBN_ << "\n";
+    oss << price_ << " USD, " << qty_ << " left in stock.\n";
+    return oss.str();
+}
+
+void Book::dump(std::ostream& os) const 
+{
+    os << "book\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << ISBN_ << "\n" << author_ << "\n";
 }

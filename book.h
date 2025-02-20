@@ -8,14 +8,13 @@ class Book: public Product
 {
 public:
     Book(string name, double price, int quantity, string author, string ISBN);
-    set<string> keywords();
-    string displayString();
+    set<string> keywords() const override;
+    string displayString() const override;
+    void dump(ostream& os) const override;
 
 private:
     string author_;
     string ISBN_;
-    string category_ = "book";
-    set<string> keyWords_;
 };
 
 #endif
