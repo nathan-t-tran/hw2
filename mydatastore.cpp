@@ -87,7 +87,7 @@ void MyDataStore::dump(ostream& ofile)
     for (map<string, User*>::iterator it = users_.begin(); it != users_.end(); ++it) 
     {
         ofile << it->second->getName() << " " 
-              << fixed << setprecision(2) << it->second->getBalance() << endl;
+              << fixed << setprecision(2) << it->second->getBalance() << " " << 0 << endl;
     }
     ofile << "</users>\n";
 }
