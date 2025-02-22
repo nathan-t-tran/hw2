@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Movie::Movie(string name, double price, int quantity, string genre, string rating) : Product(category_, name, price, quantity)
+Movie::Movie(string name, double price, int quantity, string genre, string rating) : Product("movie", name, price, quantity)
 {
     genre_ = genre;
     rating_ = rating;
@@ -16,7 +16,8 @@ Movie::Movie(string name, double price, int quantity, string genre, string ratin
 set<string> Movie::keywords() const
 {
     set<string> genreSet = parseStringToWords(genre_);
-    set<string> keyWords = setUnion(keyWords, genreSet);
+    set<string> keyWords = parseStringToWords(name_);
+    keyWords = setUnion(genreSet, keyWords);
     keyWords.insert(rating_);
 
     return keyWords;

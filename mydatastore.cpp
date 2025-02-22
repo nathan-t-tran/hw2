@@ -128,19 +128,20 @@ void MyDataStore::buyCart(string username)
     vector<Product*>& cart = carts_[username]; //gets the cart under the user
     vector<Product*> newCart;  // Holds products that couldn't be purchased
 
-    for (vector<Product*>::iterator it = cart.begin(); it != cart.end(); ++it) //checks the cart of the user
-    {
-        Product* p = *it; //gets the product inside the cart
-        if (p->getQty() > 0 && user->getBalance() >= p->getPrice()) //gets product info
+    for (vector<Product*>::iterator it = cart.begin(); it != cart.end(); ) {
+        Product* p = *it;
+        if (p->getQty() > 0 && user->getBalance() >= p->getPrice()) 
         {
-            p->subtractQty(1); //removes product quantity by 1
-            user->deductAmount(p->getPrice()); //takes the balance from user
+            p->subtractQty(1);
+            user->deductAmount(p->getPrice());
+            it = cart.erase(it); 
         } 
         else 
         {
-            newCart.push_back(p);  // Keep item if it can't be purchased
+            ++it; // 
         }
     }
+    
 
     carts_[username] = newCart;  // Update cart with unpurchased items
 }

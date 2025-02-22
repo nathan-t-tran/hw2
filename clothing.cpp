@@ -9,7 +9,7 @@ using namespace std;
 
 
 //Initializes Book object using Product, with present category
-Clothing::Clothing(string name, double price, int quantity, string brand, string size) : Product(category_, name, price, quantity)
+Clothing::Clothing(string name, double price, int quantity, string brand, string size) : Product("clothing", name, price, quantity)
 {
     brand_ = brand;
     size_ = size;
@@ -18,7 +18,8 @@ Clothing::Clothing(string name, double price, int quantity, string brand, string
 set<string> Clothing::keywords() const
 {
    set<string> brandSet = parseStringToWords(brand_);
-   set<string> keyWords = setUnion(keyWords, brandSet);
+   set<string> keyWords = parseStringToWords(name_);
+   keyWords = setUnion(brandSet, keyWords);
    keyWords.insert(size_);
 
    return keyWords;
