@@ -29,12 +29,12 @@ string Clothing::displayString() const
 {
     ostringstream oss;
     oss << name_ << "\n";
-    oss << "Brand: " << brand_ << " Size: " << size_ << "\n";
+    oss << "Size: " << size_ << " Brand: " << brand_ << "\n";
     oss << price_ << " USD, " << qty_ << " left.\n";
     return oss.str();
 }
 
 void Clothing::dump(std::ostream& os) const 
 {
-    os << "clothing\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << brand_ << "\n" << size_ << "\n";
+    os << "clothing\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << size_ << "\n" << brand_ << "\n";
 }
