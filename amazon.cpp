@@ -152,18 +152,24 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void displayProducts(vector<Product*>& hits)
+void displayProducts(vector<Product*>& hits) 
 {
     int resultNo = 1;
-    if (hits.begin() == hits.end()) {
+
+    if (hits.empty()) 
+    {  
         cout << "No results found!" << endl;
         return;
     }
+
     sort(hits.begin(), hits.end(), ProdNameSorter());
-    for (vector<Product*>::iterator it = hits.begin(); it != hits.end(); ++it) {
+
+    for (vector<Product*>::iterator it = hits.begin(); it != hits.end(); ++it) 
+    {
         cout << "Hit " << setw(3) << resultNo << endl;
-        cout << (*it)->displayString() << endl;
+        cout << (*it)->displayString() << endl; 
         cout << endl;
         resultNo++;
     }
 }
+
