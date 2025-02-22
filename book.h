@@ -3,6 +3,9 @@
 
 #include <string>
 #include <iostream>
+#include "product.h"
+
+using namespace std;
 
 class Book: public Product
 {
@@ -15,6 +18,7 @@ public:
 private:
     string author_;
     string ISBN_;
+    string category_ = "book";
 };
 
 #endif
