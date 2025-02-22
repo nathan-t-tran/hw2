@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "mydatastore.h"
 #include "util.h"
 
@@ -73,7 +74,7 @@ vector<Product*> MyDataStore::search(vector<string>& terms, int type)
 
 void MyDataStore::dump(ostream& ofile)
 {
-    //gets products
+    // Gets products
     ofile << "<products>\n";
     for (vector<Product*>::iterator it = products_.begin(); it != products_.end(); ++it) 
     {
@@ -81,13 +82,16 @@ void MyDataStore::dump(ostream& ofile)
     }
     ofile << "</products>\n";
 
-    //gets users
+    // Gets users
     ofile << "<users>\n";
-    for (map<string, User*>::iterator it = users_.begin(); it != users_.end(); ++it) {
-        it->second->dump(ofile);
+    for (map<string, User*>::iterator it = users_.begin(); it != users_.end(); ++it) 
+    {
+        ofile << it->second->getName() << " " 
+              << fixed << setprecision(2) << it->second->getBalance() << endl;
     }
     ofile << "</users>\n";
 }
+
 
 void MyDataStore::addToCart(string username, Product* p) 
 {
