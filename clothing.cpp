@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iostream> 
+#include <iomanip>
 #include "clothing.h"
 #include "product.h"
 #include "util.h"
@@ -30,7 +31,7 @@ string Clothing::displayString() const
     ostringstream oss;
     oss << name_ << "\n";
     oss << "Size: " << size_ << "Brand: " << brand_ << "\n";
-    oss << price_ << " USD, " << qty_ << " left.\n";
+    oss << fixed << setprecision(2) << price_ << " " << qty_ << " left.\n";
     return oss.str();
 }
 

@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iostream> 
+#include <iomanip>
 #include "movie.h"
 #include "product.h"
 #include "util.h"
@@ -23,14 +24,15 @@ set<string> Movie::keywords() const
     return keyWords;
 }
 
-string Movie::displayString() const
+string Movie::displayString() const 
 {
-    ostringstream oss;
-    oss << name_ << "\n";
-    oss << "Genre: " << genre_ << "Rating: " << rating_ << "\n";
-    oss << price_ << " USD, " << qty_ << " left.\n";
-    return oss.str();
+    stringstream ss;
+    ss << name_ << "\n";
+    ss << "Genre: " << genre_ << " Rating: " << rating_ << "\n";  
+    ss << fixed << setprecision(2) << price_ << " " << qty_ << " left." << endl; 
+    return ss.str();
 }
+
 
 void Movie::dump(ostream& os) const
 {

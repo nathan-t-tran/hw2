@@ -4,6 +4,7 @@
 #include "book.h"
 #include "product.h"
 #include "util.h"
+#include <iomanip>
 #include <set>
 
 using namespace std;
@@ -31,7 +32,7 @@ string Book::displayString() const
     ostringstream oss;
     oss << name_ << "\n";
     oss << "Author: " << author_ << "\n" << "ISBN: " << ISBN_ << "\n";
-    oss << price_ << " USD, " << qty_ << " left.\n";
+    oss << fixed << setprecision(2) << price_ << " " << qty_ << " left.\n";
     return oss.str();
 }
 

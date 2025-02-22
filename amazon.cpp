@@ -168,7 +168,6 @@ void displayProducts(vector<Product*>& hits)
     {
         cout << "Hit " << setw(3) << resultNo << endl;
         cout << (*it)->displayString() << endl; 
-        cout << endl;
         resultNo++;
     }
 }
