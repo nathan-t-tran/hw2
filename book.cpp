@@ -30,7 +30,7 @@ string Book::displayString() const
 {
     ostringstream oss;
     oss << name_ << "\n";
-    oss << "Author: " << author_ << " ISBN: " << ISBN_ << "\n";
+    oss << "Author: " << author_ << "\n" << " ISBN: " << ISBN_ << "\n";
     oss << price_ << " USD, " << qty_ << " left.\n";
     return oss.str();
 }
