@@ -149,11 +149,6 @@ int main(int argc, char* argv[])
             }
         }
     }
-
-    //Frees up memomory after use.
-    delete productSectionParser;
-    delete userSectionParser;
-
     return 0;
 }
 
