@@ -19,6 +19,8 @@ std::set<std::string> parseStringToWords(string rawWords)
     set<string> wordSet;
     int size = rawWords.size();
 
+    rawWords = convToLower(rawWords); //converts to lowercase
+
     //cout << "beginning of parser" << endl;
 
     for (int i = 0; i < size; i++) //loops throw rawWords

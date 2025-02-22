@@ -30,12 +30,12 @@ string Book::displayString() const
 {
     ostringstream oss;
     oss << name_ << "\n";
-    oss << "Author: " << author_ << "\n" << " ISBN: " << ISBN_ << "\n";
+    oss << "Author: " << author_ << "\n" << "ISBN: " << ISBN_ << "\n";
     oss << price_ << " USD, " << qty_ << " left.\n";
     return oss.str();
 }
 
 void Book::dump(std::ostream& os) const 
 {
-    os << "book\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << ISBN_ << "\n" << author_ << "\n";
+    os << "book\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << author_ << "\n" << ISBN_ << "\n";
 }

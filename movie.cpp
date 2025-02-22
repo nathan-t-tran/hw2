@@ -27,7 +27,7 @@ string Movie::displayString() const
 {
     ostringstream oss;
     oss << name_ << "\n";
-    oss << "Genre: " << genre_ << " Rating: " << rating_ << "\n";
+    oss << "Genre: " << genre_ << "Rating: " << rating_ << "\n";
     oss << price_ << " USD, " << qty_ << " left.\n";
     return oss.str();
 }
